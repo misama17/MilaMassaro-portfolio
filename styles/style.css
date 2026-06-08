@@ -8,10 +8,13 @@
 
 :root {
     --color-text-one: #f2f2f2;
+    --color-text-two: #2b2b2b;
     --color-bg-one: #f2f2f2;
     --color-bg-two: #2b2b2b;
     --color-header: rgba(43, 43, 43, 0.4);
     --color-overlay: rgba(254, 80, 54, 0.4);
+    --color-button: #FE5036;
+    --color-button-hover: #ffa293;
 }
 
 body {
@@ -55,6 +58,8 @@ header {
     justify-content: center;
     align-items: center;
     transform: translate(0%, -10%);
+
+    user-select: none;
 
     & img {
         object-fit: cover;
@@ -174,12 +179,15 @@ header {
 
             background-color: rgba(254, 80, 54, 0);
 
-            transition: background-color .5s ease;
+            transition: 
+                background-color .5s ease,
+                color .5s ease;
 
             & h3 {
                 opacity: 0;
                 transition: opacity .5s ease;
-                font-size: 2em;
+                font-size: clamp(1em, 2vw, 2em);
+                text-align: center;
             }
 
             & p {
@@ -199,6 +207,134 @@ header {
             & p {
                 opacity: 1;
             }
+        }
+    }
+}
+
+
+/* ------------------ */
+/* MARK: Lay-out work 
+/* ------------------ */
+main {
+    padding: 2em 1em 1em 1em;
+    font-size: 1.1em;
+
+    &>h1 {
+        text-align: center;
+        font-size: clamp(2em, 10vw, 5em);
+    }
+
+    &>h2 {
+        text-align: center;
+        font-size: clamp(1em, 3vw, 2em);
+    }
+
+    & .information-container {
+        margin-top: 3em;
+
+        display: grid;
+        grid-template-areas:
+            "article    info"
+            "learned    x"
+            "skills     x"
+            "link       link";
+        grid-template-columns: 70% 30%;
+        row-gap: 2em;
+
+        & article {
+            grid-area: article;
+
+            & p {
+                margin-bottom: 1.5em;
+            }
+        }
+
+        & .information {
+            grid-area: info;
+            text-align: end;
+
+            & h3 {
+                margin-bottom: .5em;
+                font-size: clamp(1.5em, 3vw, 2em);
+            }
+
+            & dt {
+                font-size: clamp(1.1em, 2vw, 1.25em);
+                font-weight: 800;
+                margin-bottom: .25em;
+            }
+
+            & dt:not(:first-child) {
+                margin-top: 1em;
+            }
+        }
+
+        & .learned {
+            grid-area: learned;
+
+            & ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            & ul li::before {
+                content: "- ";
+            }
+        }
+
+        & .skills {
+            grid-area: skills;
+        }
+
+        & h4 {
+            font-size: clamp(1.1em, 2vw, 1.25em);
+            margin-bottom: .5em;
+        }
+
+        & .link-website {
+            grid-area: link;
+            width: fit-content;
+
+            display: inline-block;
+            justify-self: center;
+
+            padding: 0.75rem 1.5rem;
+            background-color: var(--color-button);
+            text-decoration: none;
+            border-radius: 20px;
+            color: var(--color-text-one);
+            margin: 1em .5em 2em .5em;
+
+            transition: 
+                background-color .3s ease,
+                color .3s ease;
+
+            &:hover {
+                background-color: var(--color-button-hover);
+                color: var(--color-text-two);
+            }
+        }
+    }
+
+    & .examples-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1em;
+
+        & img {
+            width: 100%;
+        }
+
+        & video {
+            width: 100%;
+        }
+
+        & .card-large {
+            grid-column: span 2;
+        }
+
+        & .card-small {
+            grid-column: span 1;
         }
     }
 }

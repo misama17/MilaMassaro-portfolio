@@ -11,16 +11,52 @@
     --color-text-two: #2b2b2b;
     --color-bg-one: #f2f2f2;
     --color-bg-two: #2b2b2b;
-    --color-header: rgba(43, 43, 43, 0.4);
+    --color-header: rgba(43, 43, 43, 0.6);
     --color-overlay: rgba(254, 80, 54, 0.4);
     --color-button: #FE5036;
     --color-button-hover: #ffa293;
 }
 
+@font-face {
+    font-family: 'Roboto';
+    src: url('/assets/fonts/Roboto-VariableFont_wdth,wght.woff2') format('woff2');
+    font-weight: 200 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Instrument Serif Regular';
+    src: url('/assets/fonts/InstrumentSerif-Regular.ttf') format('ttf');
+    font-weight: 100 800;
+    font-style: normal;
+}
+
+
+
 body {
     color: var(--color-text-one);
     background-color: var(--color-bg-two);
     margin: 0;
+
+    font-family: "Roboto", serif;
+    font-weight: 200;
+
+    & h1,
+    & h2,
+    & h3,
+    & h4 {
+        font-family: 'Instrument Serif Regular', serif;
+    }
+
+    & dt {
+        font-family: 'Instrument Serif Regular', serif;
+    }
+
+    & .active {
+        font-weight: 800;
+        padding-bottom: .25em;
+        border-bottom: 2px solid var(--color-button);
+    }
 }
 
 header {
@@ -35,17 +71,58 @@ header {
     top: 0;
     z-index: 10;
 
+    & nav {
+        & a {
+            font-weight: 500;
+        }
+
+        & ul {
+            gap: 2em;
+        }
+    }
+
     & ul {
         display: flex;
         padding: 0;
         margin: 0;
-        gap: 2em;
+        gap: .5em;
 
         list-style-type: none;
 
         & a {
             text-decoration: none;
             color: var(--color-text-one);
+        }
+
+        & li a:hover {
+            color: var(--color-button-hover);
+        }
+
+        & svg {
+            width: 2em;
+            aspect-ratio: 1/1;
+            fill: var(--color-text-one);
+        }
+    }
+
+    & .name-logo {
+        font-family: 'Roboto', sans-serif;
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        gap: .4rem;
+
+        & img {
+            width: 1em;
+            aspect-ratio: 1/1;
+        }
+
+        & span {
+            font-size: .75em;
+            user-select: none;
+            font-weight: 500;
         }
     }
 }
@@ -114,7 +191,7 @@ header {
             position-anchor: unset;
             transform: none;
             position: relative;
-            text-align: left;
+            text-align: center;
         }
     }
 }
@@ -179,7 +256,7 @@ header {
 
             background-color: rgba(254, 80, 54, 0);
 
-            transition: 
+            transition:
                 background-color .5s ease,
                 color .5s ease;
 
@@ -216,8 +293,8 @@ header {
 /* MARK: Lay-out work 
 /* ------------------ */
 main {
-    padding: 2em 1em 1em 1em;
     font-size: 1.1em;
+    padding: 2em 1em 1em 1em;
 
     &>h1 {
         text-align: center;
@@ -305,7 +382,7 @@ main {
             color: var(--color-text-one);
             margin: 1em .5em 2em .5em;
 
-            transition: 
+            transition:
                 background-color .3s ease,
                 color .3s ease;
 
@@ -335,6 +412,33 @@ main {
 
         & .card-small {
             grid-column: span 1;
+        }
+
+        & .card-extralarge {
+            grid-column: span 4;
+        }
+    }
+
+    & .about-me {
+        margin: 3em;
+
+        & h1 {
+            text-align: center;
+            font-size: clamp(2em, 10vw, 5em);
+
+
+            & span {
+                color: var(--color-button);
+            }
+        }
+
+        &>article {
+            margin: 3em 8em;
+            text-align: center;
+
+            & p {
+                margin-bottom: 1em;
+            }
         }
     }
 }

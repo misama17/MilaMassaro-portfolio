@@ -19,7 +19,7 @@
 
 @font-face {
     font-family: 'Roboto';
-    src: url("/assets/fonts/roboto-variable-font.woff2") format('woff2');
+    src: url("../assets/fonts/roboto-variable-font.woff2") format('woff2');
     /* src: url('./assets/fonts/roboto-variable-font.woff2') format('woff2'); */
     font-weight: 200 600;
     font-style: normal;
@@ -27,7 +27,7 @@
 
 @font-face {
     font-family: 'Instrument Serif Regular';
-    src: url('/assets/fonts/instrument-regular.ttf') format('ttf');
+    src: url('../assets/fonts/instrument-regular.ttf') format('ttf');
     font-weight: 100 800;
     font-style: normal;
 }

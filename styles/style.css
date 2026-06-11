@@ -103,6 +103,10 @@ header {
             width: 2em;
             aspect-ratio: 1/1;
             fill: var(--color-text-one);
+
+            &:hover {
+                fill: var(--color-button-hover);
+            }
         }
     }
 
